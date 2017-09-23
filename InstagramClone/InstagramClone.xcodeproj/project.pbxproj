@@ -12,6 +12,7 @@
 		AD2B37B71F76BB4A00798C0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD2B37B51F76BB4A00798C0F /* Main.storyboard */; };
 		AD2B37B91F76BB4A00798C0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD2B37B81F76BB4A00798C0F /* Assets.xcassets */; };
 		AD2B37BC1F76BB4A00798C0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD2B37BA1F76BB4A00798C0F /* LaunchScreen.storyboard */; };
+		AD2B37C51F76F71B00798C0F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B37C41F76F71B00798C0F /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		AD2B37B81F76BB4A00798C0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD2B37BB1F76BB4A00798C0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD2B37BD1F76BB4A00798C0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD2B37C41F76F71B00798C0F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		AD2B37B01F76BB4A00798C0F /* InstagramClone */ = {
 			isa = PBXGroup;
 			children = (
+				AD2B37C31F76F70200798C0F /* Utilities */,
 				AD2B37B11F76BB4A00798C0F /* AppDelegate.swift */,
 				AD2B37B31F76BB4A00798C0F /* ViewController.swift */,
 				AD2B37B51F76BB4A00798C0F /* Main.storyboard */,
@@ -62,6 +65,14 @@
 				AD2B37BD1F76BB4A00798C0F /* Info.plist */,
 			);
 			path = InstagramClone;
+			sourceTree = "<group>";
+		};
+		AD2B37C31F76F70200798C0F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AD2B37C41F76F71B00798C0F /* Extensions.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD2B37B41F76BB4A00798C0F /* ViewController.swift in Sources */,
+				AD2B37C51F76F71B00798C0F /* Extensions.swift in Sources */,
 				AD2B37B21F76BB4A00798C0F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
