@@ -18,6 +18,8 @@
 		AD5345FA1F7C2ED70035E80E /* UserDataGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5345F91F7C2ED70035E80E /* UserDataGateway.swift */; };
 		AD5345FC1F7C2F350035E80E /* UserProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5345FB1F7C2F350035E80E /* UserProfileData.swift */; };
 		AD5345FF1F7C2F9F0035E80E /* FirebaseUserDataGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5345FE1F7C2F9F0035E80E /* FirebaseUserDataGateway.swift */; };
+		ADF98BE21F7D88B400A30702 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF98BE11F7D88B400A30702 /* MainTabBarController.swift */; };
+		ADF98BE41F7D89CF00A30702 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF98BE31F7D89CF00A30702 /* UserProfileController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		AD5345F91F7C2ED70035E80E /* UserDataGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataGateway.swift; sourceTree = "<group>"; };
 		AD5345FB1F7C2F350035E80E /* UserProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileData.swift; sourceTree = "<group>"; };
 		AD5345FE1F7C2F9F0035E80E /* FirebaseUserDataGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserDataGateway.swift; sourceTree = "<group>"; };
+		ADF98BE11F7D88B400A30702 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		ADF98BE31F7D89CF00A30702 /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,8 @@
 				AD2B37C31F76F70200798C0F /* Utilities */,
 				AD2B37B11F76BB4A00798C0F /* AppDelegate.swift */,
 				AD2B37B31F76BB4A00798C0F /* ViewController.swift */,
+				ADF98BE31F7D89CF00A30702 /* UserProfileController.swift */,
+				ADF98BE11F7D88B400A30702 /* MainTabBarController.swift */,
 				AD5345FD1F7C2F7F0035E80E /* User */,
 				AD2B37B51F76BB4A00798C0F /* Main.storyboard */,
 				AD2B37B81F76BB4A00798C0F /* Assets.xcassets */,
@@ -257,6 +263,8 @@
 			files = (
 				AD2B37B41F76BB4A00798C0F /* ViewController.swift in Sources */,
 				AD2B37C51F76F71B00798C0F /* Extensions.swift in Sources */,
+				ADF98BE41F7D89CF00A30702 /* UserProfileController.swift in Sources */,
+				ADF98BE21F7D88B400A30702 /* MainTabBarController.swift in Sources */,
 				AD2B37B21F76BB4A00798C0F /* AppDelegate.swift in Sources */,
 				AD5345FC1F7C2F350035E80E /* UserProfileData.swift in Sources */,
 				AD5345FF1F7C2F9F0035E80E /* FirebaseUserDataGateway.swift in Sources */,
