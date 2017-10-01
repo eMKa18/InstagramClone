@@ -20,7 +20,8 @@ class StorageKeys {
 }
 
 class FirebaseUserDataGateway: UserDataGateway {
-    func createUser(userData: UserProfileRegistrationData) {
+    
+    func createUser(userRegistrationData userData: UserProfileRegistrationData) {
         Auth.auth().createUser(withEmail: userData.userMail, password: userData.password) { (user: User?, error: Error?) in
             if let error = error {
                 print("Failed to create user", error)

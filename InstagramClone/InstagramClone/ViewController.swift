@@ -95,7 +95,7 @@ class ViewController: UIViewController {
         guard let password = passwordTextField.text, password.characters.count > 0 else { return }
         guard let profilePhoto = addPhotoButton.imageView?.image else { return }
         let profileData = UserProfileRegistrationData(userMail: email, userName: userName, password: password, profilePhoto: profilePhoto)
-        userDataGateway.createUser(userData: profileData)
+        userDataGateway.createUser(userRegistrationData: profileData)
     }
     
     private func setupAddPhotoButton() {
