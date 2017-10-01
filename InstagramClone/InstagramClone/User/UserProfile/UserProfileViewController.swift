@@ -23,6 +23,8 @@ class UserProfileViewController: UICollectionViewController, UICollectionViewDel
         fetchUser()
         registerHeader()
         registerCell()
+        
+        setupLogOutButton()
     }
 
     override func collectionView(_ collectionView : UICollectionView, viewForSupplementaryElementOfKind kind : String,
@@ -82,5 +84,24 @@ class UserProfileViewController: UICollectionViewController, UICollectionViewDel
     
     private func registerCell() {
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+    }
+    
+    private func setupLogOutButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "gear").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleLogOut))
+    }
+    
+    @objc private func handleLogOut() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (_) in
+            do {
+                try Auth.auth().signOut()
+            } catch let signOutError {
+                print("Failed to sign out...", signOutError)
+            }
+            
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }
