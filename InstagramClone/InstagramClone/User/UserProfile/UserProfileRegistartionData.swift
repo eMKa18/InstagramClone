@@ -8,16 +8,9 @@
 
 import UIKit
 
-class UserProfileData {
+struct UserProfileRegistrationData {
     var userMail: String
     var userName: String
     var password: String
     var profilePhoto: UIImage
-    
-    init(email: String, userName: String, password: String, profilePhoto: UIImage) {
-        self.userMail = email
-        self.userName = userName
-        self.password = password
-        self.profilePhoto = profilePhoto
-    }
 }

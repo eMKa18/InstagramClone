@@ -10,5 +10,5 @@ import Foundation
 import UIKit
 
 protocol UserDataGateway {
-    func createUser(userData: UserProfileData)
+    func createUser(userData: UserProfileRegistrationData)
 }
