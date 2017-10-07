@@ -61,6 +61,15 @@ class SignUpViewController: UIViewController {
         return button
     }()
     
+    let alreadyHaveAccountButton: UIButton = {
+        let button = UIButton(type: .system)
+        let attributedText = NSMutableAttributedString(string: "Already have an account? ", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.lightGray])
+        attributedText.append(NSMutableAttributedString(string: "Sign In", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.rgb(red: 17, green: 154, blue: 237)]))
+        button.setAttributedTitle(attributedText, for: .normal)
+        button.addTarget(self, action: #selector(handleShowSignIn), for: .touchUpInside)
+        return button
+    }()
+    
     let userDataGateway: UserDataGateway = FirebaseUserDataGateway()
     
     override func viewDidLoad() {
@@ -68,6 +77,7 @@ class SignUpViewController: UIViewController {
         view.backgroundColor = .white
         setupAddPhotoButton()
         setupLoginForm()
+        setupAlreadyHaveAccountButton()
     }
     
     override func didReceiveMemoryWarning() {
@@ -99,6 +109,10 @@ class SignUpViewController: UIViewController {
         userDataGateway.createUser(userRegistrationData: profileData)
     }
     
+    @objc private func handleShowSignIn() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     private func setupAddPhotoButton() {
         view.addSubview(addPhotoButton)
         addPhotoButton.anchor(top: view.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 40, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 140, height: 140)
@@ -112,6 +126,11 @@ class SignUpViewController: UIViewController {
         loginFormStackView.spacing = 10
         view.addSubview(loginFormStackView)
         loginFormStackView.anchor(top: addPhotoButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 20, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, width: 0, height: 200)
+    }
+    
+    private func setupAlreadyHaveAccountButton() {
+        view.addSubview(alreadyHaveAccountButton)
+        alreadyHaveAccountButton.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 50)
     }
     
     private func enableSignUpButton() {
