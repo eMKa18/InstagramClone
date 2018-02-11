@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginController: UIViewController {
     
@@ -37,6 +38,7 @@ class LoginController: UIViewController {
         textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
         textField.borderStyle = .roundedRect
         textField.font = UIFont.systemFont(ofSize: 14)
+        textField.addTarget(self, action: #selector(handleTextInputsChanges), for: .editingChanged)
         return textField
     }()
     
@@ -47,6 +49,7 @@ class LoginController: UIViewController {
         textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
         textField.borderStyle = .roundedRect
         textField.font = UIFont.systemFont(ofSize: 14)
+        textField.addTarget(self, action: #selector(handleTextInputsChanges), for: .editingChanged)
         return textField
     }()
     
@@ -58,6 +61,7 @@ class LoginController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.white, for: .normal)
         button.isEnabled = false
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
     
@@ -72,6 +76,42 @@ class LoginController: UIViewController {
     @objc private func handleShowSignUp() {
         let signUpController = SignUpViewController()
         navigationController?.pushViewController(signUpController, animated: true)
+    }
+    
+    @objc private func handleTextInputsChanges() {
+        let emailLength = emailTextField.text?.count ?? 0
+        let passwordLength = passwordTextField.text?.count ?? 0
+        
+        let isFormValid = emailLength > 0 && passwordLength > 0
+        isFormValid ? enableLoginButton() : disableLoginButton()
+    }
+    
+    @objc private func handleLogin() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if let err = error {
+                print("Failed to sign in with email \(email): ", err)
+                return
+            }
+            
+            print("Successfuly logged in with user: ", user?.uid ?? "")
+            
+            guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+            mainTabBarController.setupViewControllers()
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    private func enableLoginButton() {
+        loginButton.isEnabled = true
+        loginButton.backgroundColor = UIColor.rgb(red: 17, green: 154, blue: 237)
+    }
+    
+    private func disableLoginButton() {
+        loginButton.isEnabled = false
+        loginButton.backgroundColor = UIColor.rgb(red: 149, green: 204, blue: 244)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

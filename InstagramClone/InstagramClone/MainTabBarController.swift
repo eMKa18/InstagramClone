@@ -21,6 +21,11 @@ class MainTabBarController: UITabBarController {
             }
             return
         }
+        
+        setupViewControllers()
+    }
+    
+    func setupViewControllers() {
         let layout = UICollectionViewFlowLayout()
         let userProfileViewController = UserProfileViewController(collectionViewLayout: layout)
         
