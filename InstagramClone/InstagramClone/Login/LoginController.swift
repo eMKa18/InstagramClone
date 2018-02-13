@@ -65,6 +65,8 @@ class LoginController: UIViewController {
         return button
     }()
     
+    let userDataGateway = FirebaseUserDataGateway()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -89,17 +91,10 @@ class LoginController: UIViewController {
     @objc private func handleLogin() {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            if let err = error {
-                print("Failed to sign in with email \(email): ", err)
-                return
-            }
-            
-            print("Successfuly logged in with user: ", user?.uid ?? "")
-            
+        let instagramUserData = InstagramUserData(mail: email, password: password)
+        userDataGateway.loginUser(userData: instagramUserData) {
             guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
             mainTabBarController.setupViewControllers()
-            
             self.dismiss(animated: true, completion: nil)
         }
     }

@@ -20,6 +20,7 @@
 		AD5A31091F811436007B0408 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5A31081F811436007B0408 /* UserProfileHeader.swift */; };
 		AD5A310C1F8164B9007B0408 /* InstagramUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5A310B1F8164B9007B0408 /* InstagramUser.swift */; };
 		AD5A310E1F817DB9007B0408 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5A310D1F817DB9007B0408 /* LoginController.swift */; };
+		ADC81EBB2032206E00E4E9CC /* UserDataGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC81EBA2032206E00E4E9CC /* UserDataGateway.swift */; };
 		ADF98BE21F7D88B400A30702 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF98BE11F7D88B400A30702 /* MainTabBarController.swift */; };
 		ADF98BE41F7D89CF00A30702 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF98BE31F7D89CF00A30702 /* UserProfileViewController.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		AD5A31081F811436007B0408 /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		AD5A310B1F8164B9007B0408 /* InstagramUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramUser.swift; sourceTree = "<group>"; };
 		AD5A310D1F817DB9007B0408 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		ADC81EBA2032206E00E4E9CC /* UserDataGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataGateway.swift; sourceTree = "<group>"; };
 		ADF98BE11F7D88B400A30702 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		ADF98BE31F7D89CF00A30702 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				AD2B37B31F76BB4A00798C0F /* SignUpViewController.swift */,
+				ADC81EBA2032206E00E4E9CC /* UserDataGateway.swift */,
 				AD5A310D1F817DB9007B0408 /* LoginController.swift */,
 			);
 			path = Login;
@@ -286,6 +289,7 @@
 				AD5A310E1F817DB9007B0408 /* LoginController.swift in Sources */,
 				AD2B37B41F76BB4A00798C0F /* SignUpViewController.swift in Sources */,
 				AD2B37C51F76F71B00798C0F /* Extensions.swift in Sources */,
+				ADC81EBB2032206E00E4E9CC /* UserDataGateway.swift in Sources */,
 				ADF98BE41F7D89CF00A30702 /* UserProfileViewController.swift in Sources */,
 				AD5A31091F811436007B0408 /* UserProfileHeader.swift in Sources */,
 				ADF98BE21F7D88B400A30702 /* MainTabBarController.swift in Sources */,

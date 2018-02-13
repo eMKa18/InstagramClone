@@ -8,9 +8,13 @@
 
 import UIKit
 
-struct UserProfileRegistrationData {
-    var userMail: String
-    var userName: String
+struct InstagramUserData {
+    var mail: String
     var password: String
+}
+
+struct UserProfileRegistrationData {
+    var userData: InstagramUserData
+    var userName: String
     var profilePhoto: UIImage
 }

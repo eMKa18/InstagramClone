@@ -70,6 +70,8 @@ class SignUpViewController: UIViewController {
         return button
     }()
     
+    let userDataGateway: UserDataGateway = FirebaseUserDataGateway()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -103,43 +105,12 @@ class SignUpViewController: UIViewController {
         guard let userName = userNameTextField.text, userName.count > 0 else { return }
         guard let password = passwordTextField.text, password.count > 0 else { return }
         guard let profilePhoto = addPhotoButton.imageView?.image else { return }
-        let profileData = UserProfileRegistrationData(userMail: email, userName: userName, password: password, profilePhoto: profilePhoto)
-        Auth.auth().createUser(withEmail: profileData.userMail, password: profileData.password) { (user: User?, error: Error?) in
-            if let error = error {
-                print("Failed to create user", error)
-                return
-            }
-            
-            print("Successfully created user", user?.uid ?? "")
-            guard let uploadData = UIImageJPEGRepresentation(profileData.profilePhoto, 0.3) else { return }
-            let fileName = NSUUID().uuidString
-            Storage.storage().reference().child(StorageKeys.profileImagesDirKey).child(fileName).putData(uploadData, metadata: nil, completion: { (metadata: StorageMetadata?, error: Error?) in
-                if let error = error {
-                    print("Failed to upload profile image", error)
-                    return
-                }
-                
-                guard let profileImageUrl = metadata?.downloadURL()?.absoluteString else { return }
-                
-                print("Successfully uploaded image", profileImageUrl)
-                
-                guard let uid = user?.uid else { return }
-                let userValues = [DatabaseKeys.userNameKey: profileData.userName, DatabaseKeys.profileImageUrlKey: profileImageUrl]
-                let values = [uid: userValues]
-                
-                Database.database().reference().child(DatabaseKeys.usersRootKey).updateChildValues(values, withCompletionBlock: { (error: Error?, dbReference: DatabaseReference?) in
-                    if let error = error {
-                        print("Failed to save user intfo into db:", error)
-                        return
-                    }
-                    print("Successfully saved user info into db.")
-                    guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
-                    mainTabBarController.setupViewControllers()
-                    self.dismiss(animated: true, completion: nil)
-                })
-                
-            })
-            
+        let userData = InstagramUserData(mail: email, password: password)
+        let profileData = UserProfileRegistrationData(userData: userData, userName: userName, profilePhoto: profilePhoto)
+        userDataGateway.createUser(userProfileData: profileData) {
+            guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+            mainTabBarController.setupViewControllers()
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

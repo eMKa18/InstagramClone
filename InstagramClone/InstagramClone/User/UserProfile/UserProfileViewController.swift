@@ -16,6 +16,7 @@ class UserProfileViewController: UICollectionViewController, UICollectionViewDel
     let cellId = "cellId"
     let cellSpacing: CGFloat = 1
     let numberOfColumnsInGrid: CGFloat = 3
+    let userDataGateway = FirebaseUserDataGateway()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +95,7 @@ class UserProfileViewController: UICollectionViewController, UICollectionViewDel
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (_) in
             do {
-                try Auth.auth().signOut()
+                try self.userDataGateway.signOutUser()
                 let loginController = LoginController()
                 let navController = UINavigationController(rootViewController: loginController)
                 self.present(navController, animated: true, completion: nil)
