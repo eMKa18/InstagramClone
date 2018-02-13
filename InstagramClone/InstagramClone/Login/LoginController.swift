@@ -65,7 +65,16 @@ class LoginController: UIViewController {
         return button
     }()
     
-    let userDataGateway = FirebaseUserDataGateway()
+    let userDataGateway: UserDataGateway
+    
+    init(userGateway: UserDataGateway) {
+        userDataGateway = userGateway
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +85,7 @@ class LoginController: UIViewController {
     }
     
     @objc private func handleShowSignUp() {
-        let signUpController = SignUpViewController()
+        let signUpController = SignUpViewController(userGateway: userDataGateway)
         navigationController?.pushViewController(signUpController, animated: true)
     }
     

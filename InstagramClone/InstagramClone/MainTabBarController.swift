@@ -11,12 +11,23 @@ import Firebase
 
 class MainTabBarController: UITabBarController {
     
+    let userDataGateway: UserDataGateway
+    
+    init(userGateway: UserDataGateway) {
+        userDataGateway = userGateway
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
-                let loginController = LoginController()
+                let loginController = LoginController(userGateway: self.userDataGateway)
                 let navigationController = UINavigationController(rootViewController: loginController)
                 self.present(navigationController, animated: true, completion: nil)
             }
@@ -28,7 +39,7 @@ class MainTabBarController: UITabBarController {
     
     func setupViewControllers() {
         let layout = UICollectionViewFlowLayout()
-        let userProfileViewController = UserProfileViewController(collectionViewLayout: layout)
+        let userProfileViewController = UserProfileViewController(collectionViewLayout: layout, userGateway: userDataGateway)
         
         let navController = UINavigationController(rootViewController: userProfileViewController)
         navController.tabBarItem.image = #imageLiteral(resourceName: "profile_unselected")

@@ -9,14 +9,23 @@
 import UIKit
 import Firebase
 
-class UserProfileViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class UserProfileViewController: UICollectionViewController {
     
     var user: InstagramUser?
     let headerId = "headerId"
     let cellId = "cellId"
     let cellSpacing: CGFloat = 1
     let numberOfColumnsInGrid: CGFloat = 3
-    let userDataGateway = FirebaseUserDataGateway()
+    let userDataGateway: UserDataGateway
+    
+    init(collectionViewLayout: UICollectionViewLayout, userGateway: UserDataGateway) {
+        userDataGateway = userGateway
+        super.init(collectionViewLayout: collectionViewLayout)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,24 +52,6 @@ class UserProfileViewController: UICollectionViewController, UICollectionViewDel
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         cell.backgroundColor = .purple
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (view.frame.width - 2 * cellSpacing) / numberOfColumnsInGrid
-        return CGSize(width: width, height: width)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return cellSpacing
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return cellSpacing
-    }
-    
-    func collectionView(_ collectionView : UICollectionView, layout collectionViewLayout : UICollectionViewLayout,
-                         referenceSizeForHeaderInSection section : Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 200)
     }
 
     private func fetchUser() {
@@ -96,7 +87,7 @@ class UserProfileViewController: UICollectionViewController, UICollectionViewDel
         alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (_) in
             do {
                 try self.userDataGateway.signOutUser()
-                let loginController = LoginController()
+                let loginController = LoginController(userGateway: self.userDataGateway)
                 let navController = UINavigationController(rootViewController: loginController)
                 self.present(navController, animated: true, completion: nil)
             } catch let signOutError {
@@ -109,3 +100,31 @@ class UserProfileViewController: UICollectionViewController, UICollectionViewDel
         present(alertController, animated: true, completion: nil)
     }
 }
+
+extension UserProfileViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (view.frame.width - 2 * cellSpacing) / numberOfColumnsInGrid
+        return CGSize(width: width, height: width)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return cellSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return cellSpacing
+    }
+    
+    func collectionView(_ collectionView : UICollectionView, layout collectionViewLayout : UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section : Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 200)
+    }
+}
+
+
+
+
+
+
+
