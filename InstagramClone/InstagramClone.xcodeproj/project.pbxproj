@@ -93,6 +93,7 @@
 			children = (
 				AD2B37C31F76F70200798C0F /* Utilities */,
 				AD5345FD1F7C2F7F0035E80E /* User */,
+				ADC81EBE203CB09900E4E9CC /* SignUp */,
 				AD5A310F1F8182A0007B0408 /* Login */,
 				AD2B37B11F76BB4A00798C0F /* AppDelegate.swift */,
 				ADF98BE11F7D88B400A30702 /* MainTabBarController.swift */,
@@ -136,12 +137,19 @@
 		AD5A310F1F8182A0007B0408 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				AD2B37B31F76BB4A00798C0F /* SignUpViewController.swift */,
 				ADC81EBA2032206E00E4E9CC /* UserDataGateway.swift */,
 				AD5A310D1F817DB9007B0408 /* LoginController.swift */,
-				ADC81EBC203CA26D00E4E9CC /* SignUpView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		ADC81EBE203CB09900E4E9CC /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				AD2B37B31F76BB4A00798C0F /* SignUpViewController.swift */,
+				ADC81EBC203CA26D00E4E9CC /* SignUpView.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		FD6C2750B71197B7B6026E76 /* Pods */ = {
