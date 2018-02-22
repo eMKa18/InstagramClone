@@ -17,6 +17,7 @@ class UserProfileViewController: UICollectionViewController {
     let cellSpacing: CGFloat = 1
     let numberOfColumnsInGrid: CGFloat = 3
     let userDataGateway: UserDataGateway
+    let userDatabase = UserDatabase()
     
     init(collectionViewLayout: UICollectionViewLayout, userGateway: UserDataGateway) {
         userDataGateway = userGateway
@@ -56,14 +57,22 @@ class UserProfileViewController: UICollectionViewController {
 
     private func fetchUser() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        Database.database().reference().child(DatabaseKeys.usersRootKey).child(uid).observeSingleEvent(of: .value, with: { (snapshot: DataSnapshot) in
-                guard let dictionary = snapshot.value as? [String: Any] else { return }
-                self.user = InstagramUser(dictionary: dictionary)
-                self.navigationItem.title = self.user?.username
-                self.collectionView?.reloadData()
-            }) { (error: Error) in
-                print("Failed to fetch user:", error)
-            }
+        userDatabase.getDataForUserWith(id: uid, then: { (snapshot: DataSnapshot) in
+            guard let dictionary = snapshot.value as? [String: Any] else { return }
+            self.user = InstagramUser(dictionary: dictionary)
+            self.navigationItem.title = self.user?.username
+            self.collectionView?.reloadData()
+        }) { (error: Error) in
+            print("Failed to fetch user:", error)
+        }
+//        Database.database().reference().child(DatabaseKeys.usersRootKey).child(uid).observeSingleEvent(of: .value, with: { (snapshot: DataSnapshot) in
+//                guard let dictionary = snapshot.value as? [String: Any] else { return }
+//                self.user = InstagramUser(dictionary: dictionary)
+//                self.navigationItem.title = self.user?.username
+//                self.collectionView?.reloadData()
+//            }) { (error: Error) in
+//                print("Failed to fetch user:", error)
+//            }
     }
     
     private func setupView() {
