@@ -22,6 +22,7 @@
 		AD5A310E1F817DB9007B0408 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5A310D1F817DB9007B0408 /* LoginController.swift */; };
 		ADC81EBB2032206E00E4E9CC /* UserDataGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC81EBA2032206E00E4E9CC /* UserDataGateway.swift */; };
 		ADC81EBD203CA26D00E4E9CC /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC81EBC203CA26D00E4E9CC /* SignUpView.swift */; };
+		ADC81EC0203F32BC00E4E9CC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC81EBF203F32BC00E4E9CC /* LoginView.swift */; };
 		ADF98BE21F7D88B400A30702 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF98BE11F7D88B400A30702 /* MainTabBarController.swift */; };
 		ADF98BE41F7D89CF00A30702 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF98BE31F7D89CF00A30702 /* UserProfileViewController.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		AD5A310D1F817DB9007B0408 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		ADC81EBA2032206E00E4E9CC /* UserDataGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataGateway.swift; sourceTree = "<group>"; };
 		ADC81EBC203CA26D00E4E9CC /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		ADC81EBF203F32BC00E4E9CC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		ADF98BE11F7D88B400A30702 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		ADF98BE31F7D89CF00A30702 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +141,7 @@
 			children = (
 				ADC81EBA2032206E00E4E9CC /* UserDataGateway.swift */,
 				AD5A310D1F817DB9007B0408 /* LoginController.swift */,
+				ADC81EBF203F32BC00E4E9CC /* LoginView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				ADF98BE21F7D88B400A30702 /* MainTabBarController.swift in Sources */,
 				AD5A310C1F8164B9007B0408 /* InstagramUser.swift in Sources */,
 				AD2B37B21F76BB4A00798C0F /* AppDelegate.swift in Sources */,
+				ADC81EC0203F32BC00E4E9CC /* LoginView.swift in Sources */,
 				AD5345FC1F7C2F350035E80E /* UserProfileRegistartionData.swift in Sources */,
 				AD5345FF1F7C2F9F0035E80E /* Keys.swift in Sources */,
 			);

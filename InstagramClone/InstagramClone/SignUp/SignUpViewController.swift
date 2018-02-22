@@ -32,7 +32,6 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myView.backgroundColor = .white
         addActions()
     }
     

@@ -64,6 +64,7 @@ class SignUpView: UIView {
     }()
     
     func setup() {
+        self.backgroundColor = .white
         setupAddPhotoButton()
         setupLoginForm()
         setupAlreadyHaveAccountButton()
