@@ -23,6 +23,8 @@
 		ADC81EBB2032206E00E4E9CC /* UserDataGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC81EBA2032206E00E4E9CC /* UserDataGateway.swift */; };
 		ADC81EBD203CA26D00E4E9CC /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC81EBC203CA26D00E4E9CC /* SignUpView.swift */; };
 		ADC81EC0203F32BC00E4E9CC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC81EBF203F32BC00E4E9CC /* LoginView.swift */; };
+		ADC81EC2203F457800E4E9CC /* LoginStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC81EC1203F457800E4E9CC /* LoginStrings.swift */; };
+		ADC81EC4203F467D00E4E9CC /* SignupStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC81EC3203F467D00E4E9CC /* SignupStrings.swift */; };
 		ADF98BE21F7D88B400A30702 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF98BE11F7D88B400A30702 /* MainTabBarController.swift */; };
 		ADF98BE41F7D89CF00A30702 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF98BE31F7D89CF00A30702 /* UserProfileViewController.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +50,8 @@
 		ADC81EBA2032206E00E4E9CC /* UserDataGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataGateway.swift; sourceTree = "<group>"; };
 		ADC81EBC203CA26D00E4E9CC /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		ADC81EBF203F32BC00E4E9CC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		ADC81EC1203F457800E4E9CC /* LoginStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStrings.swift; sourceTree = "<group>"; };
+		ADC81EC3203F467D00E4E9CC /* SignupStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupStrings.swift; sourceTree = "<group>"; };
 		ADF98BE11F7D88B400A30702 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		ADF98BE31F7D89CF00A30702 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +146,7 @@
 				ADC81EBA2032206E00E4E9CC /* UserDataGateway.swift */,
 				AD5A310D1F817DB9007B0408 /* LoginController.swift */,
 				ADC81EBF203F32BC00E4E9CC /* LoginView.swift */,
+				ADC81EC1203F457800E4E9CC /* LoginStrings.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			children = (
 				AD2B37B31F76BB4A00798C0F /* SignUpViewController.swift */,
 				ADC81EBC203CA26D00E4E9CC /* SignUpView.swift */,
+				ADC81EC3203F467D00E4E9CC /* SignupStrings.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -306,6 +312,8 @@
 				ADC81EBB2032206E00E4E9CC /* UserDataGateway.swift in Sources */,
 				ADC81EBD203CA26D00E4E9CC /* SignUpView.swift in Sources */,
 				ADF98BE41F7D89CF00A30702 /* UserProfileViewController.swift in Sources */,
+				ADC81EC4203F467D00E4E9CC /* SignupStrings.swift in Sources */,
+				ADC81EC2203F457800E4E9CC /* LoginStrings.swift in Sources */,
 				AD5A31091F811436007B0408 /* UserProfileHeader.swift in Sources */,
 				ADF98BE21F7D88B400A30702 /* MainTabBarController.swift in Sources */,
 				AD5A310C1F8164B9007B0408 /* InstagramUser.swift in Sources */,

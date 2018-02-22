@@ -15,6 +15,8 @@ class SignUpViewController: UIViewController {
     var myView: SignUpView! {
         return self.view as! SignUpView
     }
+    private let editedImageKey = "UIImagePickerControllerEditedImage"
+    private let originalImageKey = "UIImagePickerControllerOriginalImage"
     
     init(userGateway: UserDataGateway) {
         userDataGateway = userGateway
@@ -84,9 +86,9 @@ extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationCon
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         var image: UIImage? = nil
-        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+        if let editedImage = info[editedImageKey] as? UIImage {
             image = editedImage
-        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+        } else if let originalImage = info[originalImageKey] as? UIImage {
             image = originalImage
         }
         guard let selectedImage = image else { return }

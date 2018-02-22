@@ -12,8 +12,8 @@ class LoginView: UIView {
 
     private let dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
-        let attributedText = NSMutableAttributedString(string: "Don't have an account? ", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.lightGray])
-        attributedText.append(NSMutableAttributedString(string: "Sign Up", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.rgb(red: 17, green: 154, blue: 237)]))
+        let attributedText = NSMutableAttributedString(string: LoginStrings.dontHaveAccountButtonTitle + LoginStrings.space, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.lightGray])
+        attributedText.append(NSMutableAttributedString(string: LoginStrings.signUpButtonTitle, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: UIColor.rgb(red: 17, green: 154, blue: 237)]))
         button.setAttributedTitle(attributedText, for: .normal)
         return button
     }()
@@ -32,7 +32,7 @@ class LoginView: UIView {
     
     private let emailTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "E-mail"
+        textField.placeholder = LoginStrings.emailPlaceholder
         textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
         textField.borderStyle = .roundedRect
         textField.font = UIFont.systemFont(ofSize: 14)
@@ -41,7 +41,7 @@ class LoginView: UIView {
     
     private let passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Password"
+        textField.placeholder = LoginStrings.passwordPlaceholder
         textField.isSecureTextEntry = true
         textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
         textField.borderStyle = .roundedRect
@@ -51,7 +51,7 @@ class LoginView: UIView {
     
     private let loginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Login", for: .normal)
+        button.setTitle(LoginStrings.loginButtonTitle, for: .normal)
         button.backgroundColor = UIColor.rgb(red: 149, green: 204, blue: 244)
         button.layer.cornerRadius = 10
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
