@@ -12,8 +12,8 @@ import Firebase
 class UserProfileViewController: UICollectionViewController {
     
     var user: InstagramUser?
-    let headerId = "headerId"
-    let cellId = "cellId"
+    let headerId = "userProfileHeader"
+    let cellId = "userProfileCell"
     let cellSpacing: CGFloat = 1
     let numberOfColumnsInGrid: CGFloat = 3
     let userDataGateway: UserDataGateway
@@ -84,7 +84,7 @@ class UserProfileViewController: UICollectionViewController {
     
     @objc private func handleLogOut() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (_) in
+        alertController.addAction(UIAlertAction(title: UserProfileStrings.logoutButtonTitle, style: .destructive, handler: { (_) in
             do {
                 try self.userDataGateway.signOutUser()
                 let loginController = LoginController(userGateway: self.userDataGateway)
@@ -96,7 +96,7 @@ class UserProfileViewController: UICollectionViewController {
             
         }))
         
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: UserProfileStrings.cancelButtonTitle, style: .cancel, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
 }

@@ -52,7 +52,7 @@ class UserProfileHeader: UICollectionViewCell {
         label.textAlignment = .center
         label.numberOfLines = 0
         let attributedText = NSMutableAttributedString(string: "11\n", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14)])
-        attributedText.append(NSAttributedString(string: "posts", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]))
+        attributedText.append(NSAttributedString(string: UserProfileStrings.postsLabelPartialContent, attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]))
         label.attributedText = attributedText
         return label
     }()
@@ -62,7 +62,7 @@ class UserProfileHeader: UICollectionViewCell {
         label.textAlignment = .center
         label.numberOfLines = 0
         let attributedText = NSMutableAttributedString(string: "0\n", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14)])
-        attributedText.append(NSAttributedString(string: "followers", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]))
+        attributedText.append(NSAttributedString(string: UserProfileStrings.followersLabelPartialContent, attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]))
         label.attributedText = attributedText
         return label
     }()
@@ -72,14 +72,14 @@ class UserProfileHeader: UICollectionViewCell {
         label.textAlignment = .center
         label.numberOfLines = 0
         let attributedText = NSMutableAttributedString(string: "0\n", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14)])
-        attributedText.append(NSAttributedString(string: "following", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]))
+        attributedText.append(NSAttributedString(string: UserProfileStrings.followingLabelPartialContent, attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]))
         label.attributedText = attributedText
         return label
     }()
     
     let editProfileButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Edit Profile", for: .normal)
+        button.setTitle(UserProfileStrings.editProfileButtonTitle, for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.layer.borderColor = UIColor.lightGray.cgColor
