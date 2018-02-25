@@ -7,23 +7,29 @@
 //
 
 import UIKit
+import Photos
 
 class PhotoSelectorController: UICollectionViewController {
     
     let cellId = "photoCellId"
     let headerId = "headerId"
     
+    private var images = [UIImage]()
+    private let sortDescriptorKey = "creationDate"
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
     override func viewDidLoad() {
-        super .viewDidLoad()
+        super.viewDidLoad()
         collectionView?.backgroundColor = .yellow
         setupNavigationButtons()
         
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
-        collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
+        registerCell()
+        registerHeaderCell()
+        
+        fetchPhotos()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -42,21 +48,50 @@ class PhotoSelectorController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return images.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .blue
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PhotoSelectorCell
+        let photo = images[indexPath.item]
+        cell.set(photo: photo)
         return cell
     }
     
-    
+    private func fetchPhotos() {
+        let fetchPhotoOptions = PHFetchOptions()
+        fetchPhotoOptions.fetchLimit = 10
+        let sortDescriptor = NSSortDescriptor(key: sortDescriptorKey, ascending: false)
+        fetchPhotoOptions.sortDescriptors = [sortDescriptor]
+        let allPhotos = PHAsset.fetchAssets(with: .image, options: fetchPhotoOptions)
+        allPhotos.enumerateObjects { (asset, count, stop) in
+            let imageManager = PHImageManager.default()
+            let targetSize = CGSize(width: 350, height: 350)
+            let options = PHImageRequestOptions()
+            options.isSynchronous = true
+            imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: options, resultHandler: { (image, info) in
+                if let image = image {
+                    self.images.append(image)
+                }
+                if count == allPhotos.count - 1 {
+                    self.collectionView?.reloadData()
+                }
+            })
+        }
+    }
     
     private func setupNavigationButtons() {
         navigationController?.navigationBar.tintColor = .black
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancel))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(handleNext))
+    }
+    
+    private func registerCell() {
+        collectionView?.register(PhotoSelectorCell.self, forCellWithReuseIdentifier: cellId)
+    }
+    
+    private func registerHeaderCell() {
+        collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
     }
     
     @objc func handleCancel() {

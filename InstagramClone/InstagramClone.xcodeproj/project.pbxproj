@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00119C116E640F5F8A3CC3D4 /* Pods_InstagramClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5293C4CB9FC3513088C586 /* Pods_InstagramClone.framework */; };
 		AD097730204209000092FF1D /* PhotoSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD09772F204209000092FF1D /* PhotoSelectorController.swift */; };
+		AD0977322042C55E0092FF1D /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0977312042C55E0092FF1D /* PhotoSelectorCell.swift */; };
 		AD2B37B21F76BB4A00798C0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B37B11F76BB4A00798C0F /* AppDelegate.swift */; };
 		AD2B37B41F76BB4A00798C0F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B37B31F76BB4A00798C0F /* SignUpViewController.swift */; };
 		AD2B37B71F76BB4A00798C0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD2B37B51F76BB4A00798C0F /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		7566EB0AD4DB9A91EBBD7D8D /* Pods-InstagramClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramClone/Pods-InstagramClone.debug.xcconfig"; sourceTree = "<group>"; };
 		7F5293C4CB9FC3513088C586 /* Pods_InstagramClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD09772F204209000092FF1D /* PhotoSelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorController.swift; sourceTree = "<group>"; };
+		AD0977312042C55E0092FF1D /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
 		AD2B37AE1F76BB4A00798C0F /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD2B37B11F76BB4A00798C0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD2B37B31F76BB4A00798C0F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				AD09772F204209000092FF1D /* PhotoSelectorController.swift */,
+				AD0977312042C55E0092FF1D /* PhotoSelectorCell.swift */,
 			);
 			path = AddPhoto;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD5A310E1F817DB9007B0408 /* LoginController.swift in Sources */,
+				AD0977322042C55E0092FF1D /* PhotoSelectorCell.swift in Sources */,
 				AD2B37B41F76BB4A00798C0F /* SignUpViewController.swift in Sources */,
 				ADC81EC8203F5C3F00E4E9CC /* UserDatabase.swift in Sources */,
 				AD097730204209000092FF1D /* PhotoSelectorController.swift in Sources */,
